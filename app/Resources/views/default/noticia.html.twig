@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Una sola noticia {{ noticia.id}}{% endblock %}
+{% block body %}
+	{{parent()}}
+	<h1>Noticia Nº {{ noticia.id }}</h1>		
+        	
+    <article class="format-standard">  
+
+           <div class="content-media">
+           <div class="post-thumb">
+           <img src="{{ asset(noticia.imagen) }}"> 
+           </div>  
+           </div>
+
+           <div class="primary-content">
+
+           <h1 class="page-title">{{ noticia.titulo }}</h1>	
+
+           <ul class="entry-meta">
+           <li class="date">{{ noticia.fechaHora | date('d/m/y') }}</li>										
+           </ul>						
+
+           <p class="lead">{{ noticia.descripcion }}</p> 
+           
+        </article>
+    	</div> <!-- end brick-wrapper --> 
+
+        </div> <!-- end row -->
+
+        <div id="preloader"> 
+        <div id="loader"></div>
+        </div> 
+
+
+{% endblock %}

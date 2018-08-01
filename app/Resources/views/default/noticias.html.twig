@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog de noticias{% endblock %}
+{% block body %}
+    {{parent()}}
+	{% for n in noticias %}
+    	<article class="brick entry format-standard" animate-this>
+           <a href="{{ path('noticia', {'id':n.id}) }}"><div class="entry-thumb una_sola_noticia">
+           <span class="thumb-link">
+           <img class="una_sola_noticia" src="{{ asset(n.imagen) }}" alt="{{ n.titulo }}">             
+           </span>
+           </div></a>
+
+           <div class="entry-text">
+           <div class="entry-header">
+
+           <div class="entry-meta">
+           <span class="cat-links"> 
+           <span>{{ n.fechaHora | date('d/m/y') }}<span> 
+           </span>        
+           </div>
+
+           <a href="{{ path('noticia', {'id':n.id}) }}"><h1 class="entry-title una_sola_noticia"><span>{{ n.titulo }}</span></h1></a>
+
+           </div>
+           <div class="entry-excerpt">
+           {{ n.descripcion }}
+           </div>
+           </div>
+
+       	</article> <!-- end article -->
+
+	{% endfor %}
+	</div> <!-- end brick-wrapper --> 
+
+        </div> <!-- end row -->
+
+        <div id="preloader"> 
+        <div id="loader"></div>
+        </div> 
+
+
+{% endblock %}
